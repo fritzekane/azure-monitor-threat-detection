@@ -41,6 +41,10 @@ Linux authentication logs were forwarded to Azure Log Analytics for analysis.
 
 Linux authentication logs were collected using **Azure Monitor Data Collection Rules (DCR)**.
 
+### Syslog Ingestion in Log Analytics
+
+![Syslog Logs](syslog-ingestion.png)
+
 The following Syslog facilities were enabled:
 
 - LOG_AUTH
@@ -56,6 +60,14 @@ These facilities capture authentication events such as SSH login attempts.
 
 ## 1. Failed SSH Login Detection
 
+### Failed SSH Login Attempts
+
+Query used to detect failed SSH login attempts in Syslog logs.
+
+![Failed SSH Query](failed-sshd-query.png)
+
+![Failed SSH Query Timeline](failed-sshd-query2.png)
+
 This query detects failed SSH login attempts recorded in Linux authentication logs.
 
 ```kql
@@ -68,6 +80,9 @@ Syslog
 
 ## 2. SSH Brute Force Detection
 
+### Brute Force Detection Results
+
+![Brute Force Detection](brute-force-detection.png)
 This query identifies attacker IP addresses that attempted multiple SSH logins.
 
 ```kql
